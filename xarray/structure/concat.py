@@ -10,7 +10,7 @@ from xarray.core import dtypes, utils
 from xarray.core.coordinates import Coordinates
 from xarray.core.duck_array_ops import lazy_array_equiv
 from xarray.core.indexes import Index, PandasIndex
-from xarray.core.types import T_DataArray, T_Dataset, T_Variable
+from xarray.core.types import T_DataArray, T_Dataset, T_Variable, T_Xarray
 from xarray.core.variable import Variable
 from xarray.core.variable import concat as concat_vars
 from xarray.structure.alignment import align, reindex_variables
@@ -64,7 +64,7 @@ def concat(
 
 
 def concat(
-    objs,
+    objs: Iterable[T_Xarray],
     dim,
     data_vars: T_DataVars = "all",
     coords="different",
